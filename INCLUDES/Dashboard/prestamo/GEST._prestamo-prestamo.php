@@ -30,7 +30,6 @@ if (isset($_POST["generar_prestamo"])) {
                 $stock_disponible = $row["stockdisponible_herramienta"];
 
                 $stock_disponible_nuevo = $stock_disponible - 1;
-                echo $stock_disponible;
 
 
                 //PARA LOS ESTUDIANTES 1 = NO HA PRESTADO 2 = HA PRESTADO HERRAMIENTA

@@ -2548,7 +2548,7 @@ while ($datos = $sql->fetch_array(MYSQLI_BOTH)) {
                                                                 <td><?php echo $row_herramientas['precio_herramienta'] ?></td>
                                                                 <td><?php echo "fecha" ?></td>
                                                                 <td class="">
-                                                                    <a id="devolucion_prestamo">
+                                                                    <a id="devolucion_prestamo" href="../../../INCLUDES/Dashboard/prestamo/ADM._prestamo-cancelarprestamo.php?id_estudiante=<?php echo $row_estudiantes['codigo_carnet']?>&id_herramienta=<?php echo $row_herramientas['codigo_herramienta'] ?>">
                                                                         <i class="fa-regular fa-handshake" style="color: #48D08B; cursor: pointer;"></i>
                                                                     </a>
 
@@ -2592,10 +2592,12 @@ while ($datos = $sql->fetch_array(MYSQLI_BOTH)) {
 
                                 <script>
                                     document.addEventListener('DOMContentLoaded', function() {
-                                        const botondevolucion = document.getElementById('devolucion_prestamo');
 
+                                        const botondevolucion = document.getElementById('devolucion_prestamo');
                                         botondevolucion.addEventListener('click', function(event) {
                                             event.preventDefault();
+
+                                            const href = $(this).attr('href');
 
                                             Swal.fire({
 
@@ -2614,8 +2616,8 @@ while ($datos = $sql->fetch_array(MYSQLI_BOTH)) {
 
                                                 if (result.isConfirmed) {
 
-                                                    <?php $_SESSION ?>
-                                                    window.location.href = '../../../INCLUDES/Dashboard/prestamo/ADM._prestamo-cancelarprestamo.php';
+
+                                                    document.location.href = href;
                                                 }
 
                                             });
